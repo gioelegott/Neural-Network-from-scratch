@@ -1,0 +1,558 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ks/call  Ks/call  name    
+ 25.93    263.12   263.12   600000     0.00     0.00  matrix_sum
+ 25.56    522.41   259.29   600000     0.00     0.00  activation_sample_gradient
+ 24.81    774.13   251.72   700000     0.00     0.00  matrix_vector_product
+ 20.10    978.05   203.92   600000     0.00     0.00  weight_sample_gradient
+  0.87    986.89     8.84    20000     0.00     0.00  matrix_subtraction
+  0.86    995.64     8.75                             exp
+  0.73   1003.05     7.41    20000     0.00     0.00  scalar_matrix_product
+  0.25   1005.63     2.58    10010     0.00     0.00  zero_matrix
+  0.15   1007.20     1.57  1900000     0.00     0.00  vector_sum
+  0.13   1008.50     1.30  1050000     0.00     0.00  copy_vector
+  0.11   1009.64     1.14                             _mcount_private
+  0.11   1010.76     1.12 130000000     0.00     0.00  sigmoid
+  0.09   1011.66     0.90                             __fentry__
+  0.05   1012.16     0.50   300000     0.00     0.00  softmax_derivative
+  0.05   1012.62     0.46   700000     0.00     0.00  vector_function
+  0.03   1012.96     0.34 60000000     0.00     0.00  sigmoid_derivative
+  0.03   1013.23     0.27   615018     0.00     0.00  create_matrix
+  0.02   1013.47     0.24   600000     0.00     0.00  bias_sample_gradient
+  0.02   1013.66     0.19   600000     0.00     0.00  add_sample_gradient
+  0.02   1013.84     0.18   650000     0.00     0.00  create_copy_vector
+  0.02   1014.01     0.17   615018     0.00     0.00  delete_matrix
+  0.01   1014.13     0.12   700000     0.00     0.00  refresh_layer
+  0.01   1014.23     0.10    70000     0.00     0.00  extract_labeled_data_from_mnist
+  0.01   1014.29     0.06                             _errno
+  0.00   1014.33     0.04   370000     0.00     0.00  vector_subtraction
+  0.00   1014.37     0.04                             __mingw_raise_matherr
+  0.00   1014.40     0.03   350000     0.00     0.00  softmax
+  0.00   1014.43     0.03   300000     0.00     0.00  backpropagation
+  0.00   1014.45     0.02   350000     0.00     0.00  prediction
+  0.00   1014.46     0.01  1435054     0.00     0.00  create_vector
+  0.00   1014.47     0.01  1385054     0.00     0.00  delete_vector
+  0.00   1014.48     0.01   100000     0.00     0.00  max_position
+  0.00   1014.49     0.01    80010     0.00     0.00  zero_vector
+  0.00   1014.50     0.01    20000     0.00     0.00  scalar_vector_product
+  0.00   1014.51     0.01    10000     0.00     0.00  neural_network_subtraction
+  0.00   1014.52     0.01        5     0.00     0.00  shuffle_training_data
+  0.00   1014.53     0.01        5     0.00     0.01  test_performances
+  0.00   1014.54     0.01                             malloc
+  0.00   1014.55     0.01                             strcmp
+  0.00   1014.55     0.01    15018     0.00     0.00  delete_layer
+  0.00   1014.55     0.00   600000     0.00     0.00  int_random_number
+  0.00   1014.55     0.00   500000     0.00     0.00  square
+  0.00   1014.55     0.00   159010     0.00     0.00  float_random_number
+  0.00   1014.55     0.00    70000     0.00     0.00  create_labeled_data
+  0.00   1014.55     0.00    70000     0.00     0.00  delete_labeled_data
+  0.00   1014.55     0.00    50000     0.00     0.00  standard_deviation
+  0.00   1014.55     0.00    15018     0.00     0.00  create_layer
+  0.00   1014.55     0.00    10000     0.00     0.00  scalar_neural_network_product
+  0.00   1014.55     0.00     5006     0.00     0.00  add_layer
+  0.00   1014.55     0.00     5006     0.00     0.00  create_neural_network
+  0.00   1014.55     0.00     5006     0.00     0.00  delete_neural_network
+  0.00   1014.55     0.00     5005     0.00     0.00  create_neural_network_copy
+  0.00   1014.55     0.00     5005     0.00     0.00  zero_neural_network
+  0.00   1014.55     0.00     5000     0.00     0.00  stochastic_gradient_descent
+  0.00   1014.55     0.00     5000     0.00     0.00  total_gradient
+  0.00   1014.55     0.00        8     0.00     0.00  be32toh
+  0.00   1014.55     0.00        5     0.00     0.00  print_vector
+  0.00   1014.55     0.00        5     0.00     0.19  training_session
+  0.00   1014.55     0.00        2     0.00     0.00  create_training_data
+  0.00   1014.55     0.00        2     0.00     0.00  delete_training_data
+  0.00   1014.55     0.00        2     0.00     0.00  load_training_data
+  0.00   1014.55     0.00        2     0.00     0.00  randomize_matrix
+  0.00   1014.55     0.00        2     0.00     0.00  randomize_vector
+  0.00   1014.55     0.00        2     0.00     0.00  read_mnist_header
+  0.00   1014.55     0.00        2     0.00     0.00  store_matrix
+  0.00   1014.55     0.00        2     0.00     0.00  store_vector
+  0.00   1014.55     0.00        1     0.00     0.00  randomize_network
+  0.00   1014.55     0.00        1     0.00     0.00  store_neural_network
+  0.00   1014.55     0.00        1     0.00     1.00  train
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.00% of 1014.55 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     98.9    0.00 1003.64                 main [1]
+                0.00 1003.53       1/1           train [2]
+                0.00    0.11       2/2           load_training_data [35]
+                0.00    0.00       2/2           delete_training_data [55]
+                0.00    0.00       1/5006        delete_neural_network [50]
+                0.00    0.00       1/5006        create_neural_network [51]
+                0.00    0.00       1/5006        add_layer [53]
+                0.00    0.00       1/1           randomize_network [69]
+                0.00    0.00       1/1           store_neural_network [70]
+-----------------------------------------------
+                0.00 1003.53       1/1           main [1]
+[2]     98.9    0.00 1003.53       1         train [2]
+                0.00  966.95       5/5           training_session [3]
+                0.01   36.56       5/5           test_performances [14]
+                0.01    0.00       5/5           shuffle_training_data [46]
+                0.00    0.00       5/5           print_vector [62]
+-----------------------------------------------
+                0.00  966.95       5/5           train [2]
+[3]     95.3    0.00  966.95       5         training_session [3]
+                0.00  966.95    5000/5000        stochastic_gradient_descent [4]
+                0.00    0.00       5/5005        zero_neural_network [20]
+                0.00    0.00       5/5006        delete_neural_network [50]
+                0.00    0.00       5/5005        create_neural_network_copy [52]
+-----------------------------------------------
+                0.00  966.95    5000/5000        training_session [3]
+[4]     95.3    0.00  966.95    5000         stochastic_gradient_descent [4]
+                0.00  948.08    5000/5000        total_gradient [5]
+                0.01    8.84   10000/10000       neural_network_subtraction [15]
+                0.00    7.42   10000/10000       scalar_neural_network_product [18]
+                0.00    2.58    5000/5005        zero_neural_network [20]
+                0.00    0.01    5000/5006        delete_neural_network [50]
+                0.00    0.01    5000/5005        create_neural_network_copy [52]
+-----------------------------------------------
+                0.00  948.08    5000/5000        stochastic_gradient_descent [4]
+[5]     93.4    0.00  948.08    5000         total_gradient [5]
+                0.03  729.69  300000/300000      backpropagation [6]
+                0.02  218.32  300000/350000      prediction [10]
+                0.03    0.00  300000/370000      vector_subtraction [38]
+-----------------------------------------------
+                              300000             backpropagation [6]
+                0.03  729.69  300000/300000      total_gradient [5]
+[6]     71.9    0.03  729.69  300000+300000  backpropagation [6]
+                0.19  729.50  600000/600000      add_sample_gradient [7]
+                              300000             backpropagation [6]
+-----------------------------------------------
+                0.19  729.50  600000/600000      backpropagation [6]
+[7]     71.9    0.19  729.50  600000         add_sample_gradient [7]
+              263.12    0.00  600000/600000      matrix_sum [8]
+              259.29    0.00  600000/600000      activation_sample_gradient [9]
+              203.92    0.00  600000/600000      weight_sample_gradient [13]
+                0.24    1.32  600000/600000      bias_sample_gradient [24]
+                0.99    0.00 1200000/1900000     vector_sum [23]
+                0.26    0.00  600000/615018      create_matrix [31]
+                0.17    0.00  600000/650000      create_copy_vector [32]
+                0.17    0.00  600000/615018      delete_matrix [33]
+                0.01    0.00 1200000/1385054     delete_vector [42]
+                0.00    0.00  600000/1435054     create_vector [41]
+-----------------------------------------------
+              263.12    0.00  600000/600000      add_sample_gradient [7]
+[8]     25.9  263.12    0.00  600000         matrix_sum [8]
+-----------------------------------------------
+              259.29    0.00  600000/600000      add_sample_gradient [7]
+[9]     25.6  259.29    0.00  600000         activation_sample_gradient [9]
+-----------------------------------------------
+                0.00   36.39   50000/350000      test_performances [14]
+                0.02  218.32  300000/350000      total_gradient [5]
+[10]    25.1    0.02  254.70  350000         prediction [10]
+                0.12  254.16  700000/700000      refresh_layer [11]
+                0.43    0.00  350000/1050000     copy_vector [25]
+-----------------------------------------------
+                0.12  254.16  700000/700000      prediction [10]
+[11]    25.1    0.12  254.16  700000         refresh_layer [11]
+              251.72    0.00  700000/700000      matrix_vector_product [12]
+                0.23    0.73  350000/700000      vector_function [22]
+                0.87    0.00  700000/1050000     copy_vector [25]
+                0.58    0.00  700000/1900000     vector_sum [23]
+                0.03    0.00  350000/350000      softmax [40]
+-----------------------------------------------
+              251.72    0.00  700000/700000      refresh_layer [11]
+[12]    24.8  251.72    0.00  700000         matrix_vector_product [12]
+-----------------------------------------------
+              203.92    0.00  600000/600000      add_sample_gradient [7]
+[13]    20.1  203.92    0.00  600000         weight_sample_gradient [13]
+-----------------------------------------------
+                0.01   36.56       5/5           train [2]
+[14]     3.6    0.01   36.56       5         test_performances [14]
+                0.00   36.39   50000/350000      prediction [10]
+                0.00    0.16   50000/50000       standard_deviation [34]
+                0.01    0.00  100000/100000      max_position [43]
+-----------------------------------------------
+                0.01    8.84   10000/10000       stochastic_gradient_descent [4]
+[15]     0.9    0.01    8.84   10000         neural_network_subtraction [15]
+                8.84    0.00   20000/20000       matrix_subtraction [16]
+                0.00    0.00   20000/370000      vector_subtraction [38]
+-----------------------------------------------
+                8.84    0.00   20000/20000       neural_network_subtraction [15]
+[16]     0.9    8.84    0.00   20000         matrix_subtraction [16]
+-----------------------------------------------
+                                                 <spontaneous>
+[17]     0.9    8.75    0.00                 exp [17]
+-----------------------------------------------
+                0.00    7.42   10000/10000       stochastic_gradient_descent [4]
+[18]     0.7    0.00    7.42   10000         scalar_neural_network_product [18]
+                7.41    0.00   20000/20000       scalar_matrix_product [19]
+                0.01    0.00   20000/20000       scalar_vector_product [45]
+-----------------------------------------------
+                7.41    0.00   20000/20000       scalar_neural_network_product [18]
+[19]     0.7    7.41    0.00   20000         scalar_matrix_product [19]
+-----------------------------------------------
+                0.00    0.00       5/5005        training_session [3]
+                0.00    2.58    5000/5005        stochastic_gradient_descent [4]
+[20]     0.3    0.00    2.58    5005         zero_neural_network [20]
+                2.58    0.00   10010/10010       zero_matrix [21]
+                0.00    0.00   10010/80010       zero_vector [44]
+-----------------------------------------------
+                2.58    0.00   10010/10010       zero_neural_network [20]
+[21]     0.3    2.58    0.00   10010         zero_matrix [21]
+-----------------------------------------------
+                0.03    0.10   50000/700000      standard_deviation [34]
+                0.20    0.63  300000/700000      bias_sample_gradient [24]
+                0.23    0.73  350000/700000      refresh_layer [11]
+[22]     0.2    0.46    1.46  700000         vector_function [22]
+                0.34    0.52 60000000/60000000     sigmoid_derivative [29]
+                0.60    0.00 70000000/130000000     sigmoid [27]
+                0.00    0.00  500000/500000      square [59]
+-----------------------------------------------
+                0.58    0.00  700000/1900000     refresh_layer [11]
+                0.99    0.00 1200000/1900000     add_sample_gradient [7]
+[23]     0.2    1.57    0.00 1900000         vector_sum [23]
+-----------------------------------------------
+                0.24    1.32  600000/600000      add_sample_gradient [7]
+[24]     0.2    0.24    1.32  600000         bias_sample_gradient [24]
+                0.20    0.63  300000/700000      vector_function [22]
+                0.50    0.00  300000/300000      softmax_derivative [30]
+-----------------------------------------------
+                0.43    0.00  350000/1050000     prediction [10]
+                0.87    0.00  700000/1050000     refresh_layer [11]
+[25]     0.1    1.30    0.00 1050000         copy_vector [25]
+-----------------------------------------------
+                                                 <spontaneous>
+[26]     0.1    1.14    0.00                 _mcount_private [26]
+-----------------------------------------------
+                0.52    0.00 60000000/130000000     sigmoid_derivative [29]
+                0.60    0.00 70000000/130000000     vector_function [22]
+[27]     0.1    1.12    0.00 130000000         sigmoid [27]
+-----------------------------------------------
+                                                 <spontaneous>
+[28]     0.1    0.90    0.00                 __fentry__ [28]
+-----------------------------------------------
+                0.34    0.52 60000000/60000000     vector_function [22]
+[29]     0.1    0.34    0.52 60000000         sigmoid_derivative [29]
+                0.52    0.00 60000000/130000000     sigmoid [27]
+-----------------------------------------------
+                0.50    0.00  300000/300000      bias_sample_gradient [24]
+[30]     0.0    0.50    0.00  300000         softmax_derivative [30]
+-----------------------------------------------
+                0.00    0.00    5006/615018      add_layer [53]
+                0.00    0.00   10012/615018      create_neural_network [51]
+                0.26    0.00  600000/615018      add_sample_gradient [7]
+[31]     0.0    0.27    0.00  615018         create_matrix [31]
+-----------------------------------------------
+                0.01    0.00   50000/650000      standard_deviation [34]
+                0.17    0.00  600000/650000      add_sample_gradient [7]
+[32]     0.0    0.18    0.00  650000         create_copy_vector [32]
+                0.00    0.00  650000/1435054     create_vector [41]
+-----------------------------------------------
+                0.00    0.00   15018/615018      delete_layer [49]
+                0.17    0.00  600000/615018      add_sample_gradient [7]
+[33]     0.0    0.17    0.00  615018         delete_matrix [33]
+-----------------------------------------------
+                0.00    0.16   50000/50000       test_performances [14]
+[34]     0.0    0.00    0.16   50000         standard_deviation [34]
+                0.03    0.10   50000/700000      vector_function [22]
+                0.01    0.00   50000/650000      create_copy_vector [32]
+                0.01    0.00   50000/370000      vector_subtraction [38]
+-----------------------------------------------
+                0.00    0.11       2/2           main [1]
+[35]     0.0    0.00    0.11       2         load_training_data [35]
+                0.10    0.01   70000/70000       extract_labeled_data_from_mnist [36]
+                0.00    0.00   70000/70000       create_labeled_data [56]
+                0.00    0.00       2/2           read_mnist_header [66]
+                0.00    0.00       2/2           create_training_data [63]
+-----------------------------------------------
+                0.10    0.01   70000/70000       load_training_data [35]
+[36]     0.0    0.10    0.01   70000         extract_labeled_data_from_mnist [36]
+                0.01    0.00   70000/80010       zero_vector [44]
+-----------------------------------------------
+                                                 <spontaneous>
+[37]     0.0    0.06    0.00                 _errno [37]
+-----------------------------------------------
+                0.00    0.00   20000/370000      neural_network_subtraction [15]
+                0.01    0.00   50000/370000      standard_deviation [34]
+                0.03    0.00  300000/370000      total_gradient [5]
+[38]     0.0    0.04    0.00  370000         vector_subtraction [38]
+-----------------------------------------------
+                                                 <spontaneous>
+[39]     0.0    0.04    0.00                 __mingw_raise_matherr [39]
+-----------------------------------------------
+                0.03    0.00  350000/350000      refresh_layer [11]
+[40]     0.0    0.03    0.00  350000         softmax [40]
+-----------------------------------------------
+                0.00    0.00    5006/1435054     add_layer [53]
+                0.00    0.00   10012/1435054     create_neural_network [51]
+                0.00    0.00   30036/1435054     create_layer [57]
+                0.00    0.00  140000/1435054     create_labeled_data [56]
+                0.00    0.00  600000/1435054     add_sample_gradient [7]
+                0.00    0.00  650000/1435054     create_copy_vector [32]
+[41]     0.0    0.01    0.00 1435054         create_vector [41]
+-----------------------------------------------
+                0.00    0.00   45054/1385054     delete_layer [49]
+                0.00    0.00  140000/1385054     delete_labeled_data [54]
+                0.01    0.00 1200000/1385054     add_sample_gradient [7]
+[42]     0.0    0.01    0.00 1385054         delete_vector [42]
+-----------------------------------------------
+                0.01    0.00  100000/100000      test_performances [14]
+[43]     0.0    0.01    0.00  100000         max_position [43]
+-----------------------------------------------
+                0.00    0.00   10010/80010       zero_neural_network [20]
+                0.01    0.00   70000/80010       extract_labeled_data_from_mnist [36]
+[44]     0.0    0.01    0.00   80010         zero_vector [44]
+-----------------------------------------------
+                0.01    0.00   20000/20000       scalar_neural_network_product [18]
+[45]     0.0    0.01    0.00   20000         scalar_vector_product [45]
+-----------------------------------------------
+                0.01    0.00       5/5           train [2]
+[46]     0.0    0.01    0.00       5         shuffle_training_data [46]
+                0.00    0.00  600000/600000      int_random_number [58]
+-----------------------------------------------
+                                                 <spontaneous>
+[47]     0.0    0.01    0.00                 malloc [47]
+-----------------------------------------------
+                                                 <spontaneous>
+[48]     0.0    0.01    0.00                 strcmp [48]
+-----------------------------------------------
+                0.00    0.00   15018/15018       delete_neural_network [50]
+[49]     0.0    0.00    0.00   15018         delete_layer [49]
+                0.00    0.00   15018/615018      delete_matrix [33]
+                0.00    0.00   45054/1385054     delete_vector [42]
+-----------------------------------------------
+                0.00    0.00       1/5006        main [1]
+                0.00    0.00       5/5006        training_session [3]
+                0.00    0.01    5000/5006        stochastic_gradient_descent [4]
+[50]     0.0    0.00    0.01    5006         delete_neural_network [50]
+                0.00    0.00   15018/15018       delete_layer [49]
+-----------------------------------------------
+                0.00    0.00       1/5006        main [1]
+                0.00    0.01    5005/5006        create_neural_network_copy [52]
+[51]     0.0    0.00    0.01    5006         create_neural_network [51]
+                0.00    0.00   10012/615018      create_matrix [31]
+                0.00    0.00    5005/5006        add_layer [53]
+                0.00    0.00   10012/15018       create_layer [57]
+                0.00    0.00   10012/1435054     create_vector [41]
+-----------------------------------------------
+                0.00    0.00       5/5005        training_session [3]
+                0.00    0.01    5000/5005        stochastic_gradient_descent [4]
+[52]     0.0    0.00    0.01    5005         create_neural_network_copy [52]
+                0.00    0.01    5005/5006        create_neural_network [51]
+-----------------------------------------------
+                0.00    0.00       1/5006        main [1]
+                0.00    0.00    5005/5006        create_neural_network [51]
+[53]     0.0    0.00    0.00    5006         add_layer [53]
+                0.00    0.00    5006/615018      create_matrix [31]
+                0.00    0.00    5006/15018       create_layer [57]
+                0.00    0.00    5006/1435054     create_vector [41]
+-----------------------------------------------
+                0.00    0.00   70000/70000       delete_training_data [55]
+[54]     0.0    0.00    0.00   70000         delete_labeled_data [54]
+                0.00    0.00  140000/1385054     delete_vector [42]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[55]     0.0    0.00    0.00       2         delete_training_data [55]
+                0.00    0.00   70000/70000       delete_labeled_data [54]
+-----------------------------------------------
+                0.00    0.00   70000/70000       load_training_data [35]
+[56]     0.0    0.00    0.00   70000         create_labeled_data [56]
+                0.00    0.00  140000/1435054     create_vector [41]
+-----------------------------------------------
+                0.00    0.00    5006/15018       add_layer [53]
+                0.00    0.00   10012/15018       create_neural_network [51]
+[57]     0.0    0.00    0.00   15018         create_layer [57]
+                0.00    0.00   30036/1435054     create_vector [41]
+-----------------------------------------------
+                0.00    0.00  600000/600000      shuffle_training_data [46]
+[58]     0.0    0.00    0.00  600000         int_random_number [58]
+-----------------------------------------------
+                0.00    0.00  500000/500000      vector_function [22]
+[59]     0.0    0.00    0.00  500000         square [59]
+-----------------------------------------------
+                0.00    0.00     210/159010      randomize_vector [65]
+                0.00    0.00  158800/159010      randomize_matrix [64]
+[60]     0.0    0.00    0.00  159010         float_random_number [60]
+-----------------------------------------------
+                0.00    0.00       8/8           read_mnist_header [66]
+[61]     0.0    0.00    0.00       8         be32toh [61]
+-----------------------------------------------
+                0.00    0.00       5/5           train [2]
+[62]     0.0    0.00    0.00       5         print_vector [62]
+-----------------------------------------------
+                0.00    0.00       2/2           load_training_data [35]
+[63]     0.0    0.00    0.00       2         create_training_data [63]
+-----------------------------------------------
+                0.00    0.00       2/2           randomize_network [69]
+[64]     0.0    0.00    0.00       2         randomize_matrix [64]
+                0.00    0.00  158800/159010      float_random_number [60]
+-----------------------------------------------
+                0.00    0.00       2/2           randomize_network [69]
+[65]     0.0    0.00    0.00       2         randomize_vector [65]
+                0.00    0.00     210/159010      float_random_number [60]
+-----------------------------------------------
+                0.00    0.00       2/2           load_training_data [35]
+[66]     0.0    0.00    0.00       2         read_mnist_header [66]
+                0.00    0.00       8/8           be32toh [61]
+-----------------------------------------------
+                0.00    0.00       2/2           store_neural_network [70]
+[67]     0.0    0.00    0.00       2         store_matrix [67]
+-----------------------------------------------
+                0.00    0.00       2/2           store_neural_network [70]
+[68]     0.0    0.00    0.00       2         store_vector [68]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[69]     0.0    0.00    0.00       1         randomize_network [69]
+                0.00    0.00       2/2           randomize_vector [65]
+                0.00    0.00       2/2           randomize_matrix [64]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[70]     0.0    0.00    0.00       1         store_neural_network [70]
+                0.00    0.00       2/2           store_matrix [67]
+                0.00    0.00       2/2           store_vector [68]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [28] __fentry__             [55] delete_training_data   [46] shuffle_training_data
+  [39] __mingw_raise_matherr  [42] delete_vector          [27] sigmoid
+  [37] _errno                 [17] exp                    [29] sigmoid_derivative
+  [26] _mcount_private        [36] extract_labeled_data_from_mnist [40] softmax
+   [9] activation_sample_gradient [60] float_random_number [30] softmax_derivative
+  [53] add_layer              [58] int_random_number      [59] square
+   [7] add_sample_gradient    [35] load_training_data     [34] standard_deviation
+   [6] backpropagation        [47] malloc                  [4] stochastic_gradient_descent
+  [61] be32toh                [16] matrix_subtraction     [67] store_matrix
+  [24] bias_sample_gradient    [8] matrix_sum             [70] store_neural_network
+  [25] copy_vector            [12] matrix_vector_product  [68] store_vector
+  [32] create_copy_vector     [43] max_position           [48] strcmp
+  [56] create_labeled_data    [15] neural_network_subtraction [14] test_performances
+  [57] create_layer           [10] prediction              [5] total_gradient
+  [31] create_matrix          [62] print_vector            [2] train
+  [51] create_neural_network  [64] randomize_matrix        [3] training_session
+  [52] create_neural_network_copy [69] randomize_network  [22] vector_function
+  [63] create_training_data   [65] randomize_vector       [38] vector_subtraction
+  [41] create_vector          [66] read_mnist_header      [23] vector_sum
+  [54] delete_labeled_data    [11] refresh_layer          [13] weight_sample_gradient
+  [49] delete_layer           [19] scalar_matrix_product  [21] zero_matrix
+  [33] delete_matrix          [18] scalar_neural_network_product [20] zero_neural_network
+  [50] delete_neural_network  [45] scalar_vector_product  [44] zero_vector
