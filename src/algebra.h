@@ -10,7 +10,7 @@ typedef struct
    float **entry;
 } matrix;
 
-typedef struct 
+typedef struct
 {
    int lenght;
    float *entry;
