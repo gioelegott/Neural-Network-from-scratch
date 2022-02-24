@@ -4,7 +4,10 @@
 #include "Algebra.h"
 #include <string.h>
 #include <stdint.h>
+
+#ifdef BMP
 #include "bmp.h"
+#endif
 
 #define MAX_LENGHT 320
 #define DATA_SIZE (28*28)
@@ -85,8 +88,10 @@ void shuffle_training_data (training_data* d);
 labeled_data create_labeled_data (int data_size, int label_size);
 void delete_labeled_data (labeled_data* d);
 void extract_labeled_data_from_mnist (labeled_data* d, FILE* data_file, FILE* labels_file, int32_t rows, int32_t columns);
+#ifdef BMP
 BITMAP read_bitmap_from_mnist (FILE* fp, int n);
 void extract_bitmap_from_mnist (FILE* fp, BITMAP img);
+#endif
 vector read_vector_from_mnist (FILE* fp, int n);
 void extract_vector_from_mnist (FILE* fp, vector* img);
 

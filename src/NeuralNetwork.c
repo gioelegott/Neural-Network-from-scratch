@@ -716,7 +716,7 @@ void extract_labeled_data_from_mnist (labeled_data* d, FILE* data_file, FILE* la
 }
 
 /*********  MNIST DATA FUNCTIONS  ************/
-
+#ifdef BMP
 BITMAP read_bitmap_from_mnist (FILE* fp, int n)
 {
    fseek (fp, 0, SEEK_SET);
@@ -762,7 +762,7 @@ void extract_bitmap_from_mnist (FILE* fp, BITMAP img)
    }
    return;
 }
-
+#endif
 vector read_vector_from_mnist (FILE* fp, int n)
 {
    uint32_t n_images, rows, columns;
