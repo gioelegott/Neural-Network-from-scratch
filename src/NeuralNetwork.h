@@ -116,5 +116,5 @@ float tanh_derivative (float x);
 void softmax (vector* v);
 void softmax_derivative (vector *v);
 
-uint32_t be32toh (uint32_t n);
+u_int32_t be32_toh (u_int32_t n);
 

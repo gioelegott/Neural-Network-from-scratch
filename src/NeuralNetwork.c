@@ -578,17 +578,17 @@ void read_mnist_header (FILE* data_file, FILE* labels_file, int32_t* n_samples, 
    int32_t n_labels;
    fseek(data_file, 4, SEEK_SET);
    fread(n_samples, sizeof(*n_samples), 1, data_file);
-   *n_samples = (int32_t)be32toh((uint32_t)(*n_samples));
+   *n_samples = (int32_t)be32_toh((u_int32_t)(*n_samples));
 
    fread(rows, sizeof(*rows), 1, data_file);
    fread(columns, sizeof(*columns), 1, data_file);
-   *rows = (int32_t)be32toh((uint32_t)(*rows));
-   *columns = (int32_t)be32toh((uint32_t)(*columns));
+   *rows = (int32_t)be32_toh((u_int32_t)(*rows));
+   *columns = (int32_t)be32_toh((u_int32_t)(*columns));
  
    /*reading label's header*/
    fseek(labels_file, 4, SEEK_SET);
    fread(&n_labels, sizeof(n_labels), 1, labels_file);
-   n_labels = (int32_t)be32toh((uint32_t)(n_labels));
+   n_labels = (int32_t)be32_toh((u_int32_t)(n_labels));
  
    if(*n_samples != n_labels)
    {
@@ -600,14 +600,14 @@ void read_mnist_header (FILE* data_file, FILE* labels_file, int32_t* n_samples, 
 
 }
 
-uint32_t be32toh (uint32_t n)
+u_int32_t be32_toh (u_int32_t n)
 {
-   uint32_t c1 = n>>24;
-   uint32_t c2 = n<<24;
-   uint32_t c3 = n>>8;
-   uint32_t c4 = n<<8;
+   u_int32_t c1 = n>>24;
+   u_int32_t c2 = n<<24;
+   u_int32_t c3 = n>>8;
+   u_int32_t c4 = n<<8;
 
-   uint32_t m = c1&0xff | c2&0xff000000 | c3&0xff00 | c4&0xff0000;
+   u_int32_t m = c1&0xff | c2&0xff000000 | c3&0xff00 | c4&0xff0000;
    return m;
 }
 
@@ -716,24 +716,26 @@ void extract_labeled_data_from_mnist (labeled_data* d, FILE* data_file, FILE* la
 }
 
 /*********  MNIST DATA FUNCTIONS  ************/
+
 #ifdef BMP
+
 BITMAP read_bitmap_from_mnist (FILE* fp, int n)
 {
    fseek (fp, 0, SEEK_SET);
 
-   uint32_t n_images, rows, columns;
+   u_int32_t n_images, rows, columns;
 
    fseek (fp, 4, SEEK_SET);
    fread (&n_images, sizeof(n_images), 1, fp);
-   //n_images = (u_int32_t)be32toh(n_images);
+   n_images = (u_int32_t)be32_toh(n_images);
 
    //assert(n >= n_images);
 
    fread(&rows, sizeof(rows), 1, fp);
    fread(&columns, sizeof(columns), 1, fp);
 
-   //rows = (u_int32_t)be32toh(rows);
-   //columns = (u_int32_t)be32toh(columns);
+   rows = (u_int32_t)be32_toh(rows);
+   columns = (u_int32_t)be32_toh(columns);
 
    BITMAP img = CreateEmptyBitmap(rows, columns);
 
@@ -765,19 +767,19 @@ void extract_bitmap_from_mnist (FILE* fp, BITMAP img)
 #endif
 vector read_vector_from_mnist (FILE* fp, int n)
 {
-   uint32_t n_images, rows, columns;
+   u_int32_t n_images, rows, columns;
 
    fseek (fp, 4, SEEK_SET);
    fread (&n_images, sizeof(n_images), 1, fp);
-   n_images = (uint32_t)be32toh(n_images);
+   n_images = (u_int32_t)be32_toh(n_images);
 
    //assert(n >= n_images);
 
    fread(&rows, sizeof(rows), 1, fp);
    fread(&columns, sizeof(columns), 1, fp);
 
-   rows = (uint32_t)be32toh(rows);
-   columns = (uint32_t)be32toh(columns);
+   rows = (u_int32_t)be32_toh(rows);
+   columns = (u_int32_t)be32_toh(columns);
 
    vector img = create_vector(rows*columns);
 
@@ -958,14 +960,14 @@ layer* load_layer_bin (FILE* fp)
 float sigmoid (float x)
 {
    float n;
-   n = exp((double) -x);
+   n = (float)exp((double) -x);
    return 1.0/(1 + n);
 }
 
 float sigmoid_derivative (float x)
 {
    float n = sigmoid (x);
-   return exp((double) -x)*(n*n);
+   return (float)exp((double) -x)*(n*n);
 }
 
 float relu (float x)
