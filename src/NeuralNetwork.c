@@ -1,4 +1,4 @@
-#include "neural_network_win.h"
+#include "NeuralNetwork.h"
 
 
 /*********  NEURAL FUNCTIONS  ************/

@@ -1,5 +1,5 @@
 #include <math.h>
-#include "algebra.h"
+#include "Algebra.h"
 #include <stdio.h>
 #include <stdlib.h>
 

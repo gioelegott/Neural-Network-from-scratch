@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "algebra.h"
+#include "Algebra.h"
 #include <string.h>
 #include <stdint.h>
 #include "bmp.h"
