@@ -2,11 +2,15 @@
 /*in extract labeled data bisogna cambiare!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 int main()
 {
-   int v[3] = {DATA_SIZE, 20};
-   float accuracy;
-   //vector a = create_vector(30);
-   //randomize_vector (&a, -1, 1);
 
+   int v[2] = {DATA_SIZE, 200}; //<---- vector that describes the neural network structure
+   float momentum = 0.0;
+   float learning_rate = 0.01;
+   int epochs = 20;
+
+
+   float accuracy;
+   
    printf("Creating neural network...");
    neural_network n = create_neural_network(2, v, SIGMOID);
    add_layer(&n, LABEL_SIZE, SIGMOID);
@@ -16,12 +20,12 @@ int main()
 
    /*training data*/
    printf("Loading training data...");
-   FILE* fp_d_train = fopen("C:/Users/Gioele/Desktop/c/train-images-idx3-ubyte", "rb");
+   FILE* fp_d_train = fopen("../training/train-images-idx3-ubyte", "rb");
    if (fp_d_train == NULL)
       printf("\nfile 1 non aperto\n");   
 
 
-   FILE* fp_l_train = fopen("C:/Users/Gioele/Desktop/c/train-labels-idx1-ubyte", "rb");
+   FILE* fp_l_train = fopen("../training/train-labels-idx1-ubyte", "rb");
    if (fp_l_train == NULL)
       printf("\nfile 2 non aperto\n");
    
@@ -30,11 +34,11 @@ int main()
 
    /*testing data*/
    printf("Loading testing data...");
-   FILE* fp_d_test = fopen("C:/Users/Gioele/Desktop/c/t10k-images-idx3-ubyte", "rb");
+   FILE* fp_d_test = fopen("../training/t10k-images-idx3-ubyte", "rb");
    if (fp_d_test == NULL)
       printf("file 3 non aperto\n");
 
-   FILE* fp_l_test = fopen("C:/Users/Gioele/Desktop/c/t10k-labels-idx1-ubyte", "rb");
+   FILE* fp_l_test = fopen("../training/t10k-labels-idx1-ubyte", "rb");
    if (fp_l_test == NULL)
       printf("file 4 non aperto\n");
    
@@ -42,14 +46,12 @@ int main()
    printf("   done!\n");
 
    printf("TRAINING STARTED...\n");
-   /*10 epochs*/
-   float momentum = 0.0;
-   float learning_rate = 0.01;
-   int epochs = 8;
+
+
    train(&n, data, epochs, learning_rate, momentum, test_data, 1);
    printf("TRAINING FINISHED!\n\n");
 
-   FILE* fp_storage = fopen("C:/Users/Gioele/Desktop/c/mnist_network.nnb", "wb");
+   FILE* fp_storage = fopen("../saves/mnist_network.nnb", "wb");
 
    store_neural_network_bin (fp_storage, n);
 

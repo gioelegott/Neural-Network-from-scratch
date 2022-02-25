@@ -220,13 +220,14 @@ void train (neural_network* n, training_data data, int epochs, float learning_ra
    for (i = 0; i < epochs; i++)
    {
       printf("EPOCH %d of %d   ", i+1, epochs);
+      fflush(stdout);
 
       clock_t begin = clock();
 
       shuffle_training_data(&data);
 
       /*training n with the current order of data*/
-      training_session (n, data, learning_rate, momentum);//((float)i/5 +1));
+      training_session (n, data, learning_rate, momentum);
 
       clock_t end = clock();
       double time_spent = (double)(end - begin)/CLOCKS_PER_SEC;
@@ -237,7 +238,7 @@ void train (neural_network* n, training_data data, int epochs, float learning_ra
 
       if (i%testing_interval == 0)
       {
-         print_vector(n->input->next->biases);
+         //print_vector(n->input->next->biases);
          //print_matrix(n->input->next->weights);
          dev = test_performances(*n, test);
 

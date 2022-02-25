@@ -1,0 +1,4 @@
+A file named h2_60_70-e5-acc80.nnb means that:
+	- network has 2 hidden layers (h2) with 60 and 70 neurons each (60_70)
+	- training has been done for 5 epochs (e5)
+	- accuracy obtained is 80% (acc80)
