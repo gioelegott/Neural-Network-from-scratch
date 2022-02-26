@@ -1,7 +1,7 @@
 # Neural Network form Scratch
 
 The aim of this project is to create a Neural Network library in C without using any external libraries.
-The idea and structure behind this project comes from the 3Blue1Brown youtube series **** and the data used for training and testing comes from the mnist database ***.
+The idea and structure behind this project comes from the 3Blue1Brown youtube series https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi and the data used for training and testing comes from the mnist database http://yann.lecun.com/exdb/mnist/.
 
 The library is divided in 2 parts:
 - algebra.h: defines the structs matrix and vector (of float) and contains:
@@ -13,7 +13,7 @@ The library is divided in 2 parts:
    - structs defined:
      * layer: layer of a neural network made of neurons and their connections (weights and biases) with the previous layer's neurons. All these entities are represented with matrices and vectors.
      * neural network: list of layers
-     * labeled data: struct that contains one image and its label (for more reference visit ****)
+     * labeled data: struct that contains one image and its label (for more reference visit http://yann.lecun.com/exdb/mnist/)
      * training data: bidimensional array of labelled data
    - functions:
      * neural network creation functions
@@ -26,7 +26,6 @@ To use this library follow these steps:
 1 Creating neural network:
 
 Define an array of integers that contains the number of neurons for each layer in order (the first and the last number must always be your input and output size) and pass it to the create_neural_network function with the name of the activation function you want to use (SIGMOID, RELU, TANH or SOFTMAX). If you need to add other layers in tail you can use the add_layer function.
-After the creation of the.
 
 2 Loading training data:
 
