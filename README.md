@@ -1,4 +1,4 @@
-#Neural Network form Scratch
+# Neural Network form Scratch
 
 The aim of this project is to create a Neural Network library in C without using any external libraries.
 The idea and structure behind this project comes from the 3Blue1Brown youtube series **** and the data used for training and testing comes from the mnist database ***.
