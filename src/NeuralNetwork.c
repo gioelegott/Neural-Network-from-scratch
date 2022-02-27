@@ -121,8 +121,8 @@ void refresh_layer(layer* l)
    /*updates l activations (and z)*/
 
    /*weighted sum of prevous layer's actiations*/
-   matrix_vector_product(l->weights, l->prev->activations, &(l->z));
 
+   matrix_vector_product(l->weights, l->prev->activations, &(l->z));
    /*adding biases*/
    vector_sum(l->biases, &(l->z));
 
@@ -181,6 +181,7 @@ vector prediction (neural_network n, vector input_data)
 
    /*updating all following layers*/
    l = n.input;
+   
    while ((l = l->next) != NULL)
    {
       refresh_layer(l);
@@ -889,12 +890,11 @@ void load_neural_network (FILE* fp, neural_network* n)
 
 void store_neural_network_bin (FILE* fp, neural_network n)
 {
-   int i;
    /*write n layers*/
    fwrite(&n.n_layers, sizeof(n.n_layers), 1, fp);
 
    /*input lenght*/
-   fwrite(&n.input->activations.lenght, sizeof(int), i, fp);
+   fwrite(&n.input->activations.lenght, sizeof(int), 1, fp);
 
    layer* l = n.input;
    while ((l = l->next) != NULL)
@@ -923,16 +923,20 @@ neural_network load_neural_network_bin (FILE* fp)
    int dim_input, i;
    layer* l_prev;
 
-   fread(&(n.n_layers), sizeof(int), 1, fp);
+   fread(&(n.n_layers), sizeof(n.n_layers), 1, fp);
    fread(&(dim_input), sizeof(int), 1, fp);
+
+   printf("Layers: %d Input: %d\n", n.n_layers, dim_input);
 
    n.input = create_layer(dim_input, DEF_);
    l_prev = n.input;
 
-   for (i = 0; i < n.n_layers; i++)
+   for (i = 1; i < n.n_layers; i++)
    {
-      l_prev = load_layer_bin (fp);
+      l_prev->next = load_layer_bin (fp);
+      l_prev->next->prev = l_prev;
       l_prev = l_prev->next;
+
    }
 
    n.output = l_prev;
@@ -945,9 +949,9 @@ layer* load_layer_bin (FILE* fp)
 
    fread(&dim, sizeof(int), 1, fp);
    fread(&f, sizeof(int), 1, fp);
+   printf("Dim: %d F: %d\n", dim, f);
 
    layer* l = create_layer (dim, f);
-
    l->weights = load_matrix_bin(fp);
    l->biases = load_vector_bin(fp);
 
