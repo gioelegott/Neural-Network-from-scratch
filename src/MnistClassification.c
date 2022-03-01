@@ -12,8 +12,7 @@ int main (int argc, char* argv[])
    }
 
    /*loading neural network*/
-   FILE* fp_n = fopen("../saves/mnist_network.nnb", "rb");
-   //int v[3] = {DATA_SIZE, 200, LABEL_SIZE};
+   FILE* fp_n = fopen("../saves/h2_50_20-e10-acc45.nnb", "rb");
    neural_network net = load_neural_network_bin(fp_n);
 
    printf("Loaded neural network\n");

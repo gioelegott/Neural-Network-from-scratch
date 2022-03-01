@@ -235,7 +235,7 @@ void train (neural_network* n, training_data data, int epochs, float learning_ra
 
       int minutes = (int)time_spent/60;
       float seconds = (float)time_spent - (minutes*60);
-      printf("%d' %g''\n", minutes, seconds);
+      printf("%d' %g\"\n", minutes, seconds);
 
       if (i%testing_interval == 0)
       {
@@ -926,7 +926,7 @@ neural_network load_neural_network_bin (FILE* fp)
    fread(&(n.n_layers), sizeof(n.n_layers), 1, fp);
    fread(&(dim_input), sizeof(int), 1, fp);
 
-   printf("Layers: %d Input: %d\n", n.n_layers, dim_input);
+   //printf("Layers: %d Input: %d\n", n.n_layers, dim_input);
 
    n.input = create_layer(dim_input, DEF_);
    l_prev = n.input;
@@ -949,7 +949,7 @@ layer* load_layer_bin (FILE* fp)
 
    fread(&dim, sizeof(int), 1, fp);
    fread(&f, sizeof(int), 1, fp);
-   printf("Dim: %d F: %d\n", dim, f);
+   //printf("Dim: %d F: %d\n", dim, f);
 
    layer* l = create_layer (dim, f);
    l->weights = load_matrix_bin(fp);

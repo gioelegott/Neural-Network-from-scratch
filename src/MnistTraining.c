@@ -3,16 +3,16 @@
 int main()
 {
 
-   int v[2] = {DATA_SIZE, 200}; //<---- vector that describes the neural network structure
+   int v[3] = {DATA_SIZE, 50, 50}; //<---- vector that describes the neural network structure
    float momentum = 0.0;
    float learning_rate = 0.01;
-   int epochs = 20;
+   int epochs = 10;
 
 
    float accuracy;
    
    printf("Creating neural network...");
-   neural_network n = create_neural_network(2, v, SIGMOID);
+   neural_network n = create_neural_network(3, v, SIGMOID);
    add_layer(&n, LABEL_SIZE, SIGMOID);
 
    randomize_network(&n);
@@ -51,7 +51,7 @@ int main()
    train(&n, data, epochs, learning_rate, momentum, test_data, 1);
    printf("TRAINING FINISHED!\n\n");
 
-   FILE* fp_storage = fopen("../saves/mnist_network.nnb", "wb");
+   FILE* fp_storage = fopen("../saves/h2_50_20-e10-acc45.nnb", "wb");
 
    store_neural_network_bin (fp_storage, n);
 
