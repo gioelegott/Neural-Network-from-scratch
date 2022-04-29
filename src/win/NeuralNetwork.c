@@ -12,7 +12,7 @@ neural_network create_neural_network (int number_layers, int net_shape[], int ac
 
    if (number_layers < 1)
    {
-      printf("you need more than 2 layers to create a network\n");
+      fprintf(stderr, "you need more than 2 layers to create a network\n");
       return n;
    }
 
@@ -144,10 +144,10 @@ void refresh_layer(layer* l)
       softmax(&(l->activations));
       break;
       case DEF_:
-      printf("accessing to temporary network function\n");
+      fprintf(stderr, "accessing to temporary network function\n");
       break;
 
-      printf("function %d not available\n", l->function);
+      fprintf(stderr, "function %d not available\n", l->function);
    }
    /*if (!strcmp(l->function, "sigmoid"))
       vector_function(&(l->activations), sigmoid);
@@ -158,9 +158,9 @@ void refresh_layer(layer* l)
    else if (!strcmp(l->function, "softmax"))
       softmax(&(l->activations));
    else if (!strcmp(l->function, ""))
-      printf("accessing to temporary network function\n");
+      fprintf(stderr, "accessing to temporary network function\n");
    else
-      printf("function %s not available\n", l->function);*/
+      fprintf(stderr, "function %s not available\n", l->function);*/
    
    return;
 }
@@ -172,7 +172,7 @@ vector prediction (neural_network n, vector input_data)
    layer* l;
    if (input_data.lenght != n.input->activations.lenght)
    {
-      printf("wrong input data. Data: %d Layer: %d\n", input_data.lenght, n.input->activations.lenght);
+      fprintf(stderr, "wrong input data. Data: %d Layer: %d\n", input_data.lenght, n.input->activations.lenght);
       return n.output->activations;
    }
 
@@ -219,7 +219,7 @@ void train (neural_network* n, training_data data, int epochs, float learning_ra
    /*randomizig data order and grouping and training n for each epoch */
    for (i = 0; i < epochs; i++)
    {
-      printf("EPOCH %d of %d   ", i+1, epochs);
+      fprintf(stderr, "EPOCH %d of %d   ", i+1, epochs);
 
       clock_t begin = clock();
 
@@ -233,7 +233,7 @@ void train (neural_network* n, training_data data, int epochs, float learning_ra
 
       int minutes = (int)time_spent/60;
       float seconds = (float)time_spent - (minutes*60);
-      printf("%d' %g''\n", minutes, seconds);
+      fprintf(stderr, "%d' %g''\n", minutes, seconds);
 
       if (i%testing_interval == 0)
       {
@@ -241,7 +241,7 @@ void train (neural_network* n, training_data data, int epochs, float learning_ra
          //print_matrix(n->input->next->weights);
          dev = test_performances(*n, test);
 
-         printf("Dev: %g\n\n", dev);
+         fprintf(stderr, "Dev: %g\n\n", dev);
       }
       
    }
@@ -263,13 +263,13 @@ void training_session (neural_network* n, training_data data, float learning_rat
    {
       m = data.n_batches/20;
       if (i%m == 0)
-         printf("*");
+         fprintf(stderr, "*");
 
       temp = stochastic_gradient_descent(n, data.data[i], data.batch_size, learning_rate, temp, momentum);
       //printf("\n%d/%d batches done!\n", i+1, data.n_batches);
    }
 
-   printf("\n");
+   fprintf(stderr, "\n");
    delete_neural_network(&temp);
 
    return;
@@ -432,7 +432,7 @@ void bias_sample_gradient (vector *z, vector difference, int act_func)
    /*calculates biases gradient: sigm'(z) * 2 * (a-y) */
    if (z->lenght != difference.lenght)
    {
-      printf("bias gradient cannot be calculated\n");
+      fprintf(stderr, "bias gradient cannot be calculated\n");
       return;
    }
 
@@ -453,10 +453,10 @@ void bias_sample_gradient (vector *z, vector difference, int act_func)
       softmax_derivative(z);
       break;
       case DEF_:
-      printf("accessing to temporary network function\n");
+      fprintf(stderr, "accessing to temporary network function\n");
       break;
 
-      printf("function %d not available\n", act_func);
+      fprintf(stderr, "function %d not available\n", act_func);
    }
    /*multiplying by 2 times the difference*/
    int i;
@@ -473,7 +473,7 @@ void weight_sample_gradient (matrix* g, vector bias_g, vector prev_act)
    /*calculates weights gradient: sigm'(z) * 2 * (a-y) * a_prev = bias_g * a_prev */
    if (g->rows != bias_g.lenght || g->columns != prev_act.lenght)
    {
-      printf("weight gradient cannot be calculated\n");
+      fprintf(stderr, "weight gradient cannot be calculated\n");
       return;
    }
 
@@ -494,7 +494,7 @@ void activation_sample_gradient (vector* g, vector bias_g, matrix weights)
 
    if(bias_g.lenght != weights.rows)
    {
-      printf("activation gradient cannot be calculated\n");
+      fprintf(stderr, "activation gradient cannot be calculated\n");
       return;
    }
 
@@ -592,7 +592,7 @@ void read_mnist_header (FILE* data_file, FILE* labels_file, int32_t* n_samples, 
  
    if(*n_samples != n_labels)
    {
-      printf("error in training data, data: %d label: %d\n", *n_samples, n_labels);
+      fprintf(stderr, "error in training data, data: %d label: %d\n", *n_samples, n_labels);
       return;
    }
 
@@ -692,7 +692,7 @@ void extract_labeled_data_from_mnist (labeled_data* d, FILE* data_file, FILE* la
 
    if (d->data.lenght != rows*columns)
    {
-      printf("wrong image dimensions %d %d\n", rows, columns);
+      fprintf(stderr, "wrong image dimensions %d %d\n", rows, columns);
       return;
    }
 
@@ -830,7 +830,7 @@ float test_performances (neural_network n, training_data d)
       
 
    }
-   printf("Acc: %g percent\n",result/(d.batch_size*d.n_batches)*100);
+   fprintf(stderr, "Acc: %g percent\n",result/(d.batch_size*d.n_batches)*100);
    return r/(d.n_batches*d.batch_size);
 
 }
@@ -863,7 +863,7 @@ void load_neural_network (FILE* fp, neural_network* n)
 
    if (n_lay != n->n_layers)
    {
-      printf("loading neural network not possible! (1)\n");
+      fprintf(stderr, "loading neural network not possible! (1)\n");
       return;
    }
 
@@ -871,7 +871,7 @@ void load_neural_network (FILE* fp, neural_network* n)
 
    if (input_lenght != n->input->activations.lenght)
    {
-      printf("loading neural network not possible! (2)\n");
+      fprintf(stderr, "loading neural network not possible! (2)\n");
       return;
    }
 

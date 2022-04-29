@@ -14,7 +14,7 @@ int main ()
 
     uint32_t m = c1&0xff | c2&0xff000000 | c3&0xff00 | c4&0xff0000;
 
-    printf("%d\n", m);
+    fprintf(stderr, "%d\n", m);
 
     vector v = create_vector(5);
     randomize_vector(&v, 0.0, 1.0);

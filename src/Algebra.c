@@ -53,15 +53,15 @@ void print_matrix (matrix m)
    /*prints on terminal the matrix m*/
    int i, j;
    
-   printf("\n");
+   fprintf(stderr, "\n");
    for (i = 0; i < m.rows; i++)
    {
       for (j = 0; j < m.columns; j++)
-         printf("%g ", m.entry[i][j]);
+         fprintf(stderr, "%g ", m.entry[i][j]);
 
-      printf("\n");
+      fprintf(stderr, "\n");
    }
-   printf("\n");
+   fprintf(stderr, "\n");
    return;
 }
 
@@ -70,17 +70,17 @@ matrix read_matrix ()
    /*creates a matrix and reads from the command line the matrix' entry row by row*/
    int r, c, i, j;
 
-   printf("insert number of rows\n");
+   fprintf(stderr, "insert number of rows\n");
    scanf("%d", &r);
 
-   printf("insert number of columns\n");
+   fprintf(stderr, "insert number of columns\n");
    scanf("%d", &c);
 
    matrix m = create_matrix(r, c);
 
    for (i = 0; i < r; i++)
    {
-      printf("insert row n %d\n", i + 1);
+      fprintf(stderr, "insert row n %d\n", i + 1);
 
       for (j = 0; j < c; j++)
       {
@@ -129,7 +129,7 @@ void load_matrix (FILE* fp, matrix* m)
    fscanf(fp, "%d %d%*c", &r, &c);
    if (r != m->rows || c != m->columns)
    {
-      printf("loading matrix not possible!\n");
+      fprintf(stderr, "loading matrix not possible!\n");
       return;
    }
    
@@ -216,12 +216,12 @@ void print_vector (vector v)
 {
    /*prints the vector v on the terminal*/
    int i;
-   printf("\n");
+   fprintf(stderr, "\n");
    for (i = 0; i < v.lenght; i++)
    {
-      printf("%g ",v.entry[i]);
+      fprintf(stderr, "%g ",v.entry[i]);
    }
-   printf("\n");
+   fprintf(stderr, "\n");
    return;
 }
 
@@ -229,11 +229,11 @@ vector read_vector ()
 {
    /*creates and reads a vector from the terminal*/
    int l, i;
-   printf("insert lenght\n");
+   fprintf(stderr, "insert lenght\n");
    scanf("%d", &l);
    vector v = create_vector(l);
 
-   printf("insert entry\n");
+   fprintf(stderr, "insert entry\n");
    for (i = 0; i < l; i++)
       {
          scanf("%f", &(v.entry[i]));
@@ -275,7 +275,7 @@ void load_vector (FILE* fp, vector* v)
 
    if (l != v->lenght)
    {
-      printf("loading vector not possible\n");
+      fprintf(stderr, "loading vector not possible\n");
       return;
    }
 
@@ -304,7 +304,7 @@ void copy_vector (vector sour, vector* dest)
 
    if (sour.lenght != dest->lenght)
    {
-      printf("copying not possible!\n");
+      fprintf(stderr, "copying not possible!\n");
       return;
    }
 
@@ -364,7 +364,7 @@ void vector_sum (vector sour, vector* dest)
    
    if (sour.lenght != dest->lenght)
    {
-      printf("sum not possible\n");
+      fprintf(stderr, "sum not possible\n");
       return;
    }
 
@@ -382,7 +382,7 @@ void matrix_sum (matrix sour, matrix* dest)
 
    if(sour.rows != dest->rows || sour.columns != dest->columns)
    {
-      printf("sum not possible\n");
+      fprintf(stderr, "sum not possible\n");
       return;
    }
 
@@ -403,7 +403,7 @@ void vector_subtraction (vector sour, vector* dest)
 
    if(sour.lenght != dest->lenght)
    {
-      printf("subtraction not possible\n");
+      fprintf(stderr, "subtraction not possible\n");
       return;
    }
 
@@ -421,7 +421,7 @@ void matrix_subtraction (matrix sour, matrix* dest)
 
    if(sour.rows != dest->rows || sour.columns != dest->columns)
    {
-      printf("subtraction not possible\n");
+      fprintf(stderr, "subtraction not possible\n");
       return;
    }
 
@@ -497,7 +497,7 @@ float vector_dot_product (vector v1, vector v2)
 
    if (v1.lenght != v2.lenght)
    {
-      printf("dot product not possible");
+      fprintf(stderr, "dot product not possible");
       return 0;
    }
    
@@ -518,7 +518,7 @@ void matrix_product (matrix m1, matrix m2, matrix* r)
 
    if (m1.columns != m2.rows || m2.columns != r->columns || m1.rows != r->rows)
    {
-      printf("matrix product not possible");
+      fprintf(stderr, "matrix product not possible");
       return;
    }
 
@@ -546,7 +546,7 @@ void matrix_vector_product (matrix m, vector v, vector* r)
 
    if(v.lenght != m.columns)
    {
-      printf("product not possible\n");
+      fprintf(stderr, "product not possible\n");
       return;
    }
 
@@ -571,7 +571,7 @@ void vector_matrix_product (vector v, matrix m, vector* r)
 
    if(v.lenght != m.rows)
    {
-      printf("product not possible\n");
+      fprintf(stderr, "product not possible\n");
       return;
    }
 
@@ -615,7 +615,7 @@ void vector_inverted_division (vector sour, vector* dest)
 
    if (sour.lenght != dest->lenght)
    {
-      printf("inverted division not possible\n");
+      fprintf(stderr, "inverted division not possible\n");
       return;
    }
 

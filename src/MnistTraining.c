@@ -3,7 +3,7 @@
 int main()
 {
 
-   int v[3] = {DATA_SIZE, 50, 50}; //<---- vector that describes the neural network structure
+   int v[3] = {DATA_SIZE, 50, 30}; //<---- vector that describes the neural network structure
    float momentum = 0.0;
    float learning_rate = 0.01;
    int epochs = 10;
@@ -11,47 +11,48 @@ int main()
 
    float accuracy;
    
-   printf("Creating neural network...");
+   fprintf(stderr, "Creating neural network...");
    neural_network n = create_neural_network(3, v, SIGMOID);
    add_layer(&n, LABEL_SIZE, SIGMOID);
 
    randomize_network(&n);
-   printf("   done!\n");
+   fprintf(stderr, "   done!\n");
 
    /*training data*/
-   printf("Loading training data...");
+   fprintf(stderr, "Loading training data...");
    FILE* fp_d_train = fopen("../training/train-images-idx3-ubyte", "rb");
    if (fp_d_train == NULL)
-      printf("\nfile 1 non aperto\n");   
+      fprintf(stderr, "\nfile 1 non aperto\n");   
 
 
    FILE* fp_l_train = fopen("../training/train-labels-idx1-ubyte", "rb");
    if (fp_l_train == NULL)
-      printf("\nfile 2 non aperto\n");
+      fprintf(stderr, "\nfile 2 non aperto\n");
    
    training_data data = load_training_data(fp_d_train, fp_l_train, 60);  
-   printf("   done!\n");
+   fprintf(stderr, "   done!\n");
 
    /*testing data*/
-   printf("Loading testing data...");
+   fprintf(stderr, "Loading testing data...");
+   //if (!fflush(stdout)) exit(1);
    FILE* fp_d_test = fopen("../training/t10k-images-idx3-ubyte", "rb");
    if (fp_d_test == NULL)
-      printf("file 3 non aperto\n");
+      fprintf(stderr, "file 3 non aperto\n");
 
    FILE* fp_l_test = fopen("../training/t10k-labels-idx1-ubyte", "rb");
    if (fp_l_test == NULL)
-      printf("file 4 non aperto\n");
+      fprintf(stderr, "file 4 non aperto\n");
    
    training_data test_data = load_training_data(fp_d_test, fp_l_test, 1000);  
-   printf("   done!\n");
+   fprintf(stderr, "   done!\n");
 
-   printf("TRAINING STARTED...\n");
-
+   fprintf(stderr, "TRAINING STARTED...\n");
+   fflush(stdout);
 
    train(&n, data, epochs, learning_rate, momentum, test_data, 1);
-   printf("TRAINING FINISHED!\n\n");
+   fprintf(stderr, "TRAINING FINISHED!\n\n");
 
-   FILE* fp_storage = fopen("../saves/h2_50_20-e10-acc45.nnb", "wb");
+   FILE* fp_storage = fopen("../saves/h2_50_30-e10-acc.nnb", "wb");
 
    store_neural_network_bin (fp_storage, n);
 

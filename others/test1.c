@@ -2,6 +2,6 @@
 
 int main()
 {
-    printf("hshsbhj\n");
+    fprintf(stderr, "hshsbhj\n");
     return 0;
 }

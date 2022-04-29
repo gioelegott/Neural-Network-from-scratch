@@ -7,7 +7,7 @@ int main (int argc, char* argv[])
    int i, r;
    if (argc != 2)
    {
-      printf("syntax: -./MnistClassification n-\nwhere n is the index of the chosen image\n");
+      fprintf(stderr, "syntax: -./MnistClassification n-\nwhere n is the index of the chosen image\n");
       return EXIT_FAILURE;
    }
 
@@ -15,7 +15,7 @@ int main (int argc, char* argv[])
    FILE* fp_n = fopen("../saves/h2_50_20-e10-acc45.nnb", "rb");
    neural_network net = load_neural_network_bin(fp_n);
 
-   printf("Loaded neural network\n");
+   fprintf(stderr, "Loaded neural network\n");
 
    /*opening mnist data as bmp*/
    int n = atoi(argv[1]);
@@ -36,7 +36,7 @@ int main (int argc, char* argv[])
    vector data = read_vector_from_mnist (fp, n);
    vector pr = prediction (net, data);
 
-   printf("Prediction: %d\nLabel: %d\n\n", max_position(pr), (int)label);
+   fprintf(stderr, "Prediction: %d\nLabel: %d\n\n", max_position(pr), (int)label);
    delete_vector (&data);
    
    rewind(fp_lbl);
